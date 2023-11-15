@@ -5,7 +5,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from user_data import number, password, group_name
+from user_data import number, password, group_name, group_members_count
 
 start_matrix_file = "files/{}_matrix.npy".format(group_name)
 start_ids_file = "files/{}_ids.npy".format(group_name)
@@ -18,7 +18,7 @@ DPI = 2000
 image_scale_factor = 0.01
 spring_k = 0.3
 photo_quality = 'photo_max'# 'photo_50' or 'photo_100', 'photo_200', 'photo_max'
-group_members_count = 2000
+
 
 if not (os.path.isfile(start_matrix_file) and os.path.isfile(start_ids_file)):
     user_matrix, user_ids, vk_session = request_for_subs(number, password, group_name, group_members_count)

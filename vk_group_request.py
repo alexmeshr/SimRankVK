@@ -60,11 +60,13 @@ def request_for_subs(number, password, group_name, group_members_count):
 
     user_matrix = np.zeros((user_ids.size, user_ids.size))
     friends = {}
+    print("checking friends")
     with vk_api.VkRequestsPool(vk_session) as pool:
         for user_id in user_ids:
             friends[user_id] = pool.method('friends.get', {
                 'user_id': str(user_id)
             })
+            time.sleep(0.1)
 
     counter = 0
     private_counter = 0
